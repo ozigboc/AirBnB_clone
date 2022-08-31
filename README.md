@@ -1,5 +1,5 @@
 # AirBnB Clone
-> Here goes your awesome project description!
+> A simple clone of the airbnb website with most functionalitiies
 
 ## Table of contents
 * [General info](#general-info)
@@ -9,41 +9,40 @@
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Authors](#authors)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+Project done to complete the ALX Holberton school airbnb_clone tasks.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Project screenshot](https://imgur.com/a/o7rhVGK)
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Written in Python - version 3.9
+* Tested on Ubuntu - version 20.04
 
 ## Setup
 Describe how to install / setup your local environement / add link to demo version.
 
 ## Code Examples
-Show examples of usage:
-`put-your-code-here`
+Launch console
+`projectdir>>> ./console`
 
 ## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* The Console - A command interpreter to interact and experiment with model objects.
+* Web static - Frontend of the application
+* Database - (ORM) for object instances persistence and storage
+* An API = A RESTFUL API to interact with the appication
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Complete The Console (Command interpreter)
+* Write unittests
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+Project inspired by the [AirBnb](https://www.airbnb.com/) Website, based on tasks provided by ALX Holberton softwware engineer Airbnb_Clone project
 
 ## Authors
 - John Rumide --> [codestronomer](https://github.com/Codestronomer)
