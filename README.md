@@ -25,8 +25,19 @@ Project done to complete the ALX Holberton school airbnb_clone tasks.
 Describe how to install / setup your local environement / add link to demo version.
 
 ## Code Examples
-Launch console
-`projectdir>>> ./console`
+- Launch console
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+```
 
 ## Features
 * The Console - A command interpreter to interact and experiment with model objects.
