@@ -15,7 +15,7 @@
 Project done to complete the ALX Holberton school airbnb_clone tasks.
 
 ## Screenshots
-![Project screenshot](https://imgur.com/a/o7rhVGK)
+![Project screenshot](https://ibb.co/fv41KPY)
 
 ## Technologies
 * Written in Python - version 3.9
