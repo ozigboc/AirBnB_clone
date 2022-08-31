@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 # base_model.py
 """Defines the BaseModel class"""
-from types import ClassMethodDescriptorType
+import json
 import uuid
+import models
 from datetime import datetime
+
 
 class BaseModel:
         """Represents a BaseModel object"""
@@ -22,6 +24,7 @@ class BaseModel:
                         self.id = str(uuid.uuid4())
                         self.created_at = datetime.now()
                         self.updated_at = datetime.now()
+                        models.storage.new(self)
 
         def __str__(self):
                 """prints class name and attributes"""
@@ -30,6 +33,7 @@ class BaseModel:
         def save(self):
                 """updates the current instance attributes"""
                 self.updated_at = datetime.now()
+                models.storage.save()
         
         def to_dict(self):
                 """returns a dictionary containing all key/values of __dict__ of the instance"""
