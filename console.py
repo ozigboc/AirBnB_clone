@@ -5,10 +5,16 @@ import cmd
 import shlex
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.place import Place
+from models.city import City
+from models.review import Review
+from models.state import State
 from models import storage
 
 
-classes = {"BaseModel": BaseModel, "User": User}
+classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
+           "Place": Place, "City": City, "Review": Review, "State": State}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -97,6 +103,19 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class name missing **")
+
+    def default(self, line):
+        """Called on an input line when the command prefix is not recognized.
+        If this method is not overridden, it prints an error message and
+        returns.
+        """
+        args = line.split('.')
+        if args[0] in classes:
+            print(args[0])
+            if args[1] == "all()":
+                print(storage.all())
+        else:
+            self.stdout.write('*** Unknown syntax: %s\n' % line)
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""
