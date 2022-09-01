@@ -8,7 +8,7 @@ from models.user import User
 from models import storage
 
 
-classes = ["BaseModel", "User"]
+classes = {"BaseModel": BaseModel, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,10 +18,10 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates a new instance of BaseModel Ex: $ create BaseModel"""
         if arg:
-            if arg != "BaseModel":
+            if arg not in classes:
                 print("** class doesn't exist **")
             else:
-                new_model = BaseModel()
+                new_model = classes[arg]()
                 new_model.save()
                 print(new_model.id)
         else:
