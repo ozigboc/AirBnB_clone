@@ -63,12 +63,15 @@ class HBNBCommand(cmd.Cmd):
          based or not on the class name
         """
         str_list = []
-        if arg:
-            if arg not in classes:
-                print("** class doesn't exist")
-                return False
         for k, v in storage.all().items():
-            str_list.append(str(v))
+            if arg:
+                if arg not in classes:
+                    print("** class doesn't exist")
+                    return False
+                if arg == v.__class__.__name__:
+                    str_list.append(str(v))
+            else:
+                str_list.append(str(v))
         print(str_list)
 
     def do_update(self, arg):
@@ -111,9 +114,18 @@ class HBNBCommand(cmd.Cmd):
         """
         args = line.split('.')
         if args[0] in classes:
-            print(args[0])
             if args[1] == "all()":
-                print(storage.all())
+                for k, v in storage.all().items():
+                    if v.__class__.__name__ == args[0]:
+                        print(v)
+            elif args[1] == "count()":
+                count = 0
+                for k, v in storage.all().items():
+                    if v.__class__.__name__ == args[0]:
+                        count += 1
+                print(count)
+            else:
+                print("** Invalid command **")
         else:
             self.stdout.write('*** Unknown syntax: %s\n' % line)
 
