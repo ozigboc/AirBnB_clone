@@ -114,16 +114,27 @@ class HBNBCommand(cmd.Cmd):
         """
         args = line.split('.')
         if args[0] in classes:
+
             if args[1] == "all()":
                 for k, v in storage.all().items():
                     if v.__class__.__name__ == args[0]:
                         print(v)
+
             elif args[1] == "count()":
                 count = 0
                 for k, v in storage.all().items():
                     if v.__class__.__name__ == args[0]:
                         count += 1
                 print(count)
+
+            elif args[1].startswith("show"):
+                id = args[1].strip("show()\"")
+                key = args[0] + "." + id
+                if key in storage.all():
+                    print(storage.all().get(key))
+                else:
+                    print("No instance found")
+
             else:
                 print("** Invalid command **")
         else:
@@ -143,11 +154,12 @@ class HBNBCommand(cmd.Cmd):
 
 
 def parse(arg):
-    'Convert a args string into an argument list'
+    """Convert a args string into an argument list"""
     return shlex.split(arg)
 
 
 def arg_check(arg):
+    """Checks the argument and returns the correct error messages or key"""
     if arg:
         args = parse(arg)
     else:
