@@ -52,8 +52,11 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id"""
         key = arg_check(arg)
         if key is not None:
-            storage.all().pop(key)
-            storage.save()
+            if key in storage.all():
+                storage.all().pop(key)
+                storage.save()
+            else:
+                print("** no instance found **")
         else:
             return False
 
@@ -132,6 +135,18 @@ class HBNBCommand(cmd.Cmd):
                 key = args[0] + "." + id
                 if key in storage.all():
                     print(storage.all().get(key))
+                else:
+                    print("No instance found")
+
+            elif args[1].startswith("destroy"):
+                id_r = args[1][8:][:-2]
+                id = id_r.strip("\"")
+                key = args[0] + "." + id
+                print(key)
+                if key in storage.all():
+                    # storage.all().pop(key)
+                    del storage.all().get(key)
+                    storage.save()
                 else:
                     print("No instance found")
 
