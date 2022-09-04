@@ -32,7 +32,7 @@ class TestBaseModel(unittest.TestCase):
         my_model.name = "ALX"
         my_model.number = 89
         self.assertEqual([my_model.name, my_model.number],
-                ["ALX", 89])
+                         ["ALX", 89])
 
         def test_datetime(self):
             """
@@ -47,5 +47,5 @@ class TestBaseModel(unittest.TestCase):
             pass
 
 
-        if __name__ == '__main__':
-            unittest.main()
+if __name__ == '__main__':
+    unittest.main()
