@@ -131,7 +131,7 @@ class HBNBCommand(cmd.Cmd):
                 print(count)
 
             elif args[1].startswith("show"):
-                id = args[1].strip("show()\"")
+                id = args[1].rstrip("show()\"")
                 key = args[0] + "." + id
                 if key in storage.all():
                     print(storage.all().get(key))
