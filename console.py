@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # console.py
 """entry point of the command interpreter"""
+
 import cmd
 import shlex
 from models.base_model import BaseModel
@@ -13,6 +14,7 @@ from models.state import State
 from models import storage
 
 
+# dict of classes
 classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
            "Place": Place, "City": City, "Review": Review, "State": State}
 
@@ -21,8 +23,22 @@ class HBNBCommand(cmd.Cmd):
     """class definition for the command interpreter"""
     prompt = '(hbnb) '
 
+    def do_quit(self, arg):
+        """Quit command to exit the program\n"""
+        return True
+
+    def do_EOF(self, arg):
+        """Quit command to exit the program\n"""
+        return True
+
+    def emptyline(self):
+        """Method when an empty line is entered in response to the prompt."""
+        return False
+
     def do_create(self, arg):
-        """Creates a new instance of BaseModel Ex: $ create BaseModel"""
+        """
+        Creates a new instance of BaseModel Ex: $ create BaseModel
+        """
         if arg:
             if arg not in classes:
                 print("** class doesn't exist **")
@@ -153,18 +169,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** Invalid command **")
         else:
             self.stdout.write('*** Unknown syntax: %s\n' % line)
-
-    def do_quit(self, arg):
-        """Quit command to exit the program\n"""
-        return True
-
-    def do_EOF(self, arg):
-        """Quit command to exit the program\n"""
-        return True
-
-    def emptyline(self):
-        """Method when an empty line is entered in response to the prompt."""
-        pass
 
 
 def parse(arg):
