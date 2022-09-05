@@ -173,7 +173,9 @@ class HBNBCommand(cmd.Cmd):
                 print(count)
 
             elif args[1].startswith("show"):
-                id = args[1].rstrip("show()\"")
+                id_r = args[1][5:][:-1]
+                id = id_r.strip("\"")
+                print(id)
                 key = args[0] + "." + id
                 if key in storage.all():
                     print(storage.all().get(key))
@@ -181,7 +183,7 @@ class HBNBCommand(cmd.Cmd):
                     print("No instance found")
 
             elif args[1].startswith("destroy"):
-                id_r = args[1][8:][:-2]
+                id_r = args[1][8:][:-1]
                 id = id_r.strip("\"")
                 key = args[0] + "." + id
                 print(key)
