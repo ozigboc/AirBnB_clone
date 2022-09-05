@@ -7,9 +7,7 @@ import unittest
 import datetime
 from unittest.mock import patch
 import pep8
-import sys
 from io import StringIO
-import re
 import os
 console = HBNBCommand()
 
@@ -413,16 +411,6 @@ EOF  all  create  destroy  help  quit  show  update\n
         uid = f.getvalue()[:-1]
         self.assertTrue(len(uid) > 0)
         return uid
-
-    def help_load_dict(self, rep):
-        """Helper method to test dictionary equality."""
-        rex = re.compile(r"^\[(.*)\] \((.*)\) (.*)$")
-        res = rex.match(rep)
-        self.assertIsNotNone(res)
-        s = res.group(3)
-        s = re.sub(r"(datetime\.datetime\([^)]*\))", "'\\1'", s)
-        d = json.loads(s.replace("'", '"'))
-        return d
 
 
 class TestConsoleDocs(unittest.TestCase):

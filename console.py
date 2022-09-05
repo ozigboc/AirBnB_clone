@@ -195,7 +195,26 @@ class HBNBCommand(cmd.Cmd):
                         print("** no instance found **")
 
             elif args[1].startswith("update"):
-                pass
+                attributes = args[1][7:-1]
+                attr_list = [i.rstrip(",\"").lstrip(",\"")
+                             for i in attributes.split()]
+                if attr_list[0]:
+                    key = args[0] + "." + attr_list[0]
+                    if key in storage.all():
+                        if attr_list[1]:
+                            if attr_list[2]:
+                                setattr(storage.all()[
+                                        key], attr_list[1], attr_list[2])
+                                storage.all().get(key).save()
+                            else:
+                                print("** value missing **")
+                        else:
+                            print("** attribute name missing **")
+                    else:
+                        print("** no instance found **")
+                else:
+                    print("** instance id missing **")
+
             else:
                 print("** Invalid command **")
         else:
