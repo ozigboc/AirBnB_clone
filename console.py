@@ -18,6 +18,35 @@ from models import storage
 classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
            "Place": Place, "City": City, "Review": Review, "State": State}
 
+# function to parse arguments
+
+
+def parse(arg):
+    """Convert a args string into an argument list"""
+    return shlex.split(arg)
+
+# checks arguments
+
+
+def arg_check(arg):
+    """Checks the argument and returns the correct error messages or key"""
+    if arg:
+        args = parse(arg)
+    else:
+        print("** class name missing **")
+        return None
+    if args[0]:
+        if len(args) > 1:
+            if args[0] not in classes:
+                print("** class doesn't exist **")
+            else:
+                key = f"{args[0]}.{args[1]}"
+                return key
+        else:
+            print("** instance id missing **")
+    else:
+        print("** class name missing **")
+
 
 class HBNBCommand(cmd.Cmd):
     """class definition for the command interpreter"""
@@ -169,31 +198,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** Invalid command **")
         else:
             self.stdout.write('*** Unknown syntax: %s\n' % line)
-
-
-def parse(arg):
-    """Convert a args string into an argument list"""
-    return shlex.split(arg)
-
-
-def arg_check(arg):
-    """Checks the argument and returns the correct error messages or key"""
-    if arg:
-        args = parse(arg)
-    else:
-        print("** class name missing **")
-        return None
-    if args[0]:
-        if len(args) > 1:
-            if args[0] not in classes:
-                print("** class doesn't exist **")
-            else:
-                key = f"{args[0]}.{args[1]}"
-                return key
-        else:
-            print("** instance id missing **")
-    else:
-        print("** class name missing **")
 
 
 if __name__ == '__main__':
