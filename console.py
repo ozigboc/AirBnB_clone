@@ -18,14 +18,10 @@ from models import storage
 classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
            "Place": Place, "City": City, "Review": Review, "State": State}
 
-# function to parse arguments
-
 
 def parse(arg):
     """Convert a args string into an argument list"""
     return shlex.split(arg)
-
-# checks arguments
 
 
 def arg_check(arg):
@@ -50,14 +46,15 @@ def arg_check(arg):
 
 class HBNBCommand(cmd.Cmd):
     """class definition for the command interpreter"""
-    prompt = '(hbnb) '
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """Quit command to exit the program\n"""
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, arg):
-        """Quit command to exit the program\n"""
+        """End of file command to exit the program"""
+        print()
         return True
 
     def emptyline(self):
