@@ -1,9 +1,7 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Test suits for the base model
 """
-
-import uuid
 import unittest
 from time import sleep
 from unittest import mock

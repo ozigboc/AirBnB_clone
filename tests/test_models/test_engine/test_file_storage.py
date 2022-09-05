@@ -1,9 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Defines Test suite for the FileStorage Model class
 """
 from models.engine.file_storage import FileStorage
-import models
 from models.base_model import BaseModel
 import json
 import unittest

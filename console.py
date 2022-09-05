@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # console.py
 """entry point of the command interpreter"""
 import cmd
@@ -144,8 +144,7 @@ class HBNBCommand(cmd.Cmd):
                 key = args[0] + "." + id
                 print(key)
                 if key in storage.all():
-                    # storage.all().pop(key)
-                    del storage.all().get(key)
+                    storage.all().pop(key)
                     storage.save()
                 else:
                     print("No instance found")
