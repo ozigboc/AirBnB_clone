@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # base_model.py
 """Defines the BaseModel class"""
-import json
+
 import uuid
 import models
 from datetime import datetime
@@ -12,6 +12,9 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initializes a BaseClass instance"""
+        if len(args) != 0:
+            raise TypeError("Too many arguments")
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == '__class__':
