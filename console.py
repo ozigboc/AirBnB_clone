@@ -114,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """ Prints string represention of all instances of a given class """
+        """ Prints string represention of all instances of a given class"""
 
         if not arg:
             print("** class name missing **")
@@ -152,7 +152,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             all_objs = storage.all()
-            for key, objc in all_objs.items():
+            for keys, objc in all_objs.items():
                 ob_name = objc.__class__.__name__
                 ob_id = objc.id
                 if ob_name == args[0] and ob_id == args[1].strip('"'):
