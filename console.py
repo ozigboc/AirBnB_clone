@@ -214,13 +214,22 @@ class HBNBCommand(cmd.Cmd):
                     if attr_list[0]:
                         key = args[0] + "." + attr_list[0]
                         if key in storage.all():
-                            if attr_list[1]:
-                                if attr_list[2]:
-                                    setattr(storage.all()[
-                                            key], attr_list[1], attr_list[2])
-                                    storage.all().get(key).save()
+                            if len(attr_list) > 1:
+                                if attr_list[1]:
+                                    if len(attr_list) > 2:
+                                        if attr_list[2]:
+                                            setattr(storage.all()[
+                                                    key], attr_list[1],
+                                                    attr_list[2])
+                                            storage.all().get(key).save()
+                                        else:
+                                            print("** value missing **")
+                                            return False
+                                    else:
+                                        print("** value missing **")
+                                        return False
                                 else:
-                                    print("** value missing **")
+                                    print("** attribute name missing **")
                                     return False
                             else:
                                 print("** attribute name missing **")
