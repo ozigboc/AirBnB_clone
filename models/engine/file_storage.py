@@ -41,12 +41,14 @@ class FileStorage:
             json.dump(d, f)
 
     def reload(self):
-        """Deserializes the JSON file to __objects"""
+        """
+        Deserializes the JSON file to __objects
+        """
         try:
             with open(self.__file_path, 'r') as f:
                 d = json.load(f)
                 for k, v in d.items():
                     classname = v.get('__class__')
                     self.__objects[k] = classes[classname](**v)
-        except FileNotFoundError:
+        except:
             pass
