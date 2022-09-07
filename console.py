@@ -134,13 +134,16 @@ class HBNBCommand(cmd.Cmd):
                 if len(args) > 1:
                     key = f"{args[0]}.{args[1]}"
                     if key in storage.all():
-                        if args[2]:
-                            if args[3]:
-                                setattr(storage.all()[
-                                        key], args[2], args[3])
-                                storage.all().get(key).save()
+                        if len(args) > 2:
+                            if args[2]:
+                                if args[3]:
+                                    setattr(storage.all()[
+                                            key], args[2], args[3])
+                                    storage.all().get(key).save()
+                                else:
+                                    print("** value missing **")
                             else:
-                                print("** value missing **")
+                                print("** attribute name missing **")
                         else:
                             print("** attribute name missing **")
                     else:
