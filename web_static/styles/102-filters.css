@@ -1,0 +1,138 @@
+:root{
+	--white-color: #DDDDDD;
+	--primary-color: white;
+	--button-color: #FF5A5F;
+	--location-color: #FAFAFA;
+}
+
+.filters{
+	display: flex;
+	background-color: var(--primary-color);
+	height: 70px;
+	width: 100%;
+	border: 1px solid var(--white-color);
+	border-radius: 4px;
+	align-items: center;
+	/* justify-content: center; */
+	position: absolute;
+}
+button{
+	display: flex;
+	font-size: 18px;
+	background-color: var(--button-color);
+	color: var(--primary-color);
+	height: 48px;
+	width: 20%;
+	border: none;
+	border-radius: 4px;
+	justify-content: center;
+	align-items: center;
+	right: 30px;
+	position: absolute;
+}
+button:hover{
+	opacity: 90%;
+}
+.filters .locations,
+.filters .amenities{
+	display: flex;
+	position: relative;
+	justify-content: center;
+	height: 100%;
+	width: 25%;
+	left: 10px;
+	flex-direction: column;
+}
+.filters .locations{
+	border-right: 1px solid var(--white-color);
+}
+.filters .locations h3,
+.filters .amenities h3{
+	font-weight: 600;
+	margin: 0 0 2px 20px;
+}
+.filters .locations h4,
+.filters .amenities h4{
+	font-size: 14px;
+	font-weight: 400;
+	margin: 2px 0 0 20px;
+}
+.popover{
+	display: none;
+	position: absolute;
+	background-color: var(--location-color);
+	width: 100%;
+	border: 1px solid var(--white-color);
+	top: 0;
+	margin-top: 70px;
+	z-index: 1;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding-bottom: 20px;
+	padding-top: 15px;
+}
+.filters .locations .popover{
+	left: -10px;
+	width: 260px;
+	padding-top: 10px;
+}
+.popover,
+.popover ul{
+	list-style-type: none;
+}
+.filters .locations:hover > .popover,
+.filters .amenities:hover > .popover{
+	display: block;
+}
+.popover h2{
+	font-size: 16px;
+	margin: 10px 0 1px 0;
+}
+.popover li{
+	line-height: 20px;
+}
+
+@media screen and (max-width: 430px) {
+	.filters{
+		width: 90%;
+		height: 40px;
+		align-items: center;
+		margin-left: 14px;
+	}
+	button{
+		height: 25px;
+		font-size: 12px;
+		right: 18px;
+	}
+	.locations h3,
+	.amenities h3{
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.filters .locations h4,
+	.filters .amenities h4{
+		font-size: 9px;
+		font-weight: 200;
+	}
+	.filters .locations .popover{
+		width: 83px;
+		padding-top: 3px;
+	}
+	.popover{
+		margin-top: 40px;
+		padding: 1px auto;
+		padding-top: 10px;
+		padding-bottom: 7px;
+	}
+	.popover h2{
+		font-size: 12px;
+	}
+	.popover li{
+		margin-left: -25px;
+		line-height: 15px;
+	}
+	.locations ul li ul li,
+	.amenities ul li{
+		font-size: 10px;
+	}
+}
